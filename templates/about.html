@@ -1,0 +1,97 @@
+{% extends 'sta.html' %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+          <fieldset class="form-group">
+             <legend class="border-bottom mb-4">
+                 create abouts
+             </legend>
+             <div class="form-group">
+                 {{form.service1.label(class="fom-control-label")}}
+                 {% if form.service1.errors %}
+                     {{form.service1(class="form-control form-control-lg is-invalid")}}
+                     <div class="invalid-feedback">
+                        {% for error in form.service1.errors %}
+                           <span>{{error}}</span>
+                        {% endfor %}
+                     </div>
+                 {% else %}
+                     {{form.service1(class="form-control form-control-lg")}}
+                 {% endif %}
+
+             </div>
+             <div class="form-group">
+                 {{form.pic1.label()}}
+                 {{form.pic1(class="form-control-file")}}
+                 {% if form.pic1.errors %}
+                   {% for error in form.pic1.errors %}
+                      <span class="text-danger">{{error}}</span>
+                   {% endfor %}
+                 {% endif %}
+
+             </div>
+             <div class="form-group">
+                 {{form.service2.label(class="fom-control-label")}}
+                 {% if form.service2.errors %}
+                     {{form.service2(class="form-control form-control-lg is-invalid")}}
+                     <div class="invalid-feedback">
+                        {% for error in form.service2.errors %}
+                           <span>{{error}}</span>
+                        {% endfor %}
+                     </div>
+                 {% else %}
+                     {{form.service2(class="form-control form-control-lg")}}
+                 {% endif %}
+
+             </div>
+             <div class="form-group">
+                 {{form.pic2.label()}}
+                 {{form.pic2(class="form-control-file")}}
+                 {% if form.pic2.errors %}
+                   {% for error in form.pic2.errors %}
+                      <span class="text-danger">{{error}}</span>
+                   {% endfor %}
+                 {% endif %}
+
+             </div>
+             <div class="form-group">
+                 {{form.service3.label(class="fom-control-label")}}
+                 {% if form.service3.errors %}
+                     {{form.service3(class="form-control form-control-lg is-invalid")}}
+                     <div class="invalid-feedback">
+                        {% for error in form.service3.errors %}
+                           <span>{{error}}</span>
+                        {% endfor %}
+                     </div>
+                 {% else %}
+                     {{form.service3(class="form-control form-control-lg")}}
+                 {% endif %}
+
+             </div>
+             <div class="form-group">
+                 {{form.pic3.label()}}
+                 {{form.pic3(class="form-control-file")}}
+                 {% if form.pic3.errors %}
+                   {% for error in form.pic3.errors %}
+                      <span class="text-danger">{{error}}</span>
+                   {% endfor %}
+                 {% endif %}
+
+             </div>
+
+          </fieldset>
+          <div class="form-group">
+              {{form.submit(class="btn btn-outline-info")}}
+          </div>
+
+    </form>
+    {% for ser in serv %}
+    <p>{{ser.service1}}</p>
+    <p>{{ser.service2}}</p>
+    <p>{{ser.service3}}</p>
+          <a class="btn btn-primary" href="{{url_for('del_serv',id=ser.id)}}">delete services</a>
+    {% endfor %}
+{% endblock %}

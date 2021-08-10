@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="Meghna One page parallax responsive HTML Template ">
+
+	<meta name="author" content="Muhammad Morshed">
+
+	<title>koileken</title>
+
+	<!-- Mobile Specific Meta
+		================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicon -->
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" /> -->
+
+	<!-- CSS
+		================================================== -->
+	<!-- Fontawesome Icon font -->
+	<link rel="stylesheet" href="static/style.css">
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="static/bootstrap.min.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="static/animate.css">
+	<!-- Magnific popup css -->
+	<link rel="stylesheet" href="static/magnific-popup.css">
+	<!-- Slick Carousel -->
+	<link rel="stylesheet" href="static/slick.css">
+	<link rel="stylesheet" href="static/slick-theme.css">
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="static/styless.css">
+
+
+</head>
+
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="50">
+	<!--
+	    Start Preloader
+	    ==================================== -->
+	<div class="preloader">
+		<div class="sk-cube-grid">
+			<div class="sk-cube sk-cube1"></div>
+			<div class="sk-cube sk-cube2"></div>
+			<div class="sk-cube sk-cube3"></div>
+			<div class="sk-cube sk-cube4"></div>
+			<div class="sk-cube sk-cube5"></div>
+			<div class="sk-cube sk-cube6"></div>
+			<div class="sk-cube sk-cube7"></div>
+			<div class="sk-cube sk-cube8"></div>
+			<div class="sk-cube sk-cube9"></div>
+		</div>
+	</div>
+	<!-- End Preloader
+        ==================================== -->
+
+ <!--
+Welcome Slider
+==================================== -->
+
+<section class="hero-area overlay" style="background-image: url('static/images/back.jpg');">
+	<!-- <video autoplay muted loop class="hero-video">
+		<source src="images/banner/hero-video.mp4" type="video/mp4">
+	</video> -->
+	<div class="block">
+		<div class="video-button">
+			<a class="popup-video" href="https://www.youtube.com/watch?v=8X63HpaShUg">
+				<i class="tf-ion-play"></i>
+		</a>
+		</div>
+		<h1>POWER OF THE MIND</h1>
+		<p></p>
+		<a data-scroll href="{{url_for('blog')}}" class="btn btn-transparent">learn more</a>
+	</div>
+</section>
+
+ <!--
+  Fixed Navigation
+  ==================================== -->
+    <header id="navigation" class="navbar navigation">
+        <div class="container">
+            <div class="navbar-header">
+              <!-- responsive nav button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- /responsive nav button -->
+
+                <!-- logo -->
+                <a class="navbar-brand logo" href="#body">
+              <!--  <img src="static/images" alt="Website Logo" />
+                    <svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC" stroke-width="3">
+                                <ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+                                <path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+                                <path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            <!-- /logo -->
+        </div>
+
+        <!-- main nav -->
+        <nav class="collapse navbar-collapse navbar-right" role="Navigation">
+            <ul id="nav" class="nav navbar-nav navigation-menu">
+                <li><a data-scroll href="#body">Home</a></li>
+                <li><a data-scroll href="#about">About Us</a></li>
+                <li><a data-scroll href="#services">Services</a></li>
+                <li><a data-scroll href="#blog">Latest posts</a></li>
+                <li><a data-scroll href="#contact-us">Contact</a></li>
+								<li><a data-scroll href="{{url_for('blog')}}">blog</a></li>
+								<li><a data-scroll href="{{url_for('login')}}">ADMIN</a></li>
+            </ul>
+        </nav>
+        <!-- /main nav -->
+
+      </div>
+  </header>
+  <!--
+  End Fixed Navigation
+  ==================================== -->
+
+<!--
+		Start About Section
+		==================================== -->
+  <!-- End section -->
+
+<section class="section about-2 padding-0 bg-dark" id="about" style="background-color:pink;">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 padding-0 ">
+				<img class="img-responsive" src="{{abt_imag[0]}}" alt="">
+			</div>
+			<div class="col-md-6">
+				<div class="content-block">
+					<h2>We’re A Digital Design Agency.</h2>
+					<p>{{abts[0].abt}}</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="media">
+								<div class="pull-left">
+									<i class="tf-circle-compass"></i>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="media">
+								<div class="pull-left">
+									<i class="tf-hotairballoon"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- Start Services Section
+==================================== -->
+
+<section id="services" class="bg-one section" style="background-color:purple;">
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+				<h2>Our <span class="color">Services</span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+
+            <!-- Single Service Item -->
+			<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms">
+				<div class="service-block text-center">
+					<div class="service-icon text-center">
+						<i class="tf-globe"></i>
+					</div>
+					<h3>WordPress Theme</h3>
+					<p>{{abts[0].service1}}</p>
+				</div>
+			</article>
+            <!-- End Single Service Item -->
+
+            <!-- Single Service Item -->
+			<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="200ms">
+				<div class="service-block text-center">
+					<div class="service-icon text-center">
+						<i class="tf-ion-laptop"></i>
+					</div>
+					<h3>Responsive Design</h3>
+					<p>{{abts[0].service2}}</p>
+				</div>
+			</article>
+            <!-- End Single Service Item -->
+
+            <!-- Single Service Item -->
+			<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms">
+				<div class="service-block text-center">
+					<div class="service-icon text-center">
+						<i class="tf-genius"></i>
+					</div>
+					<h3>Media &amp; Advertisement</h3>
+					<p>{{abts[0].service3}}</p>
+				</div>
+			</article>
+			<!-- End Single Service Item -->
+
+			<!-- Single Service Item -->
+
+			<!-- End Single Service Item -->
+
+		</div> 		<!-- End row -->
+	</div>   	<!-- End container -->
+</section>   <!-- End section -->
+
+
+<!--
+Start Counter Section
+==================================== -->
+
+<section id="counter" class="parallax-section bg-1 section overly">
+	<div class="container">
+		<div class="row">
+
+			<!-- first count item -->
+			<div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInDown" data-wow-duration="500ms">
+				<div class="counters-item">
+					<i class="tf-ion-android-happy"></i>
+					<span data-speed="3000" data-to="320">320</span>
+					<h3>Happy Clients</h3>
+				</div>
+			</div>
+
+		</div> 		<!-- end row -->
+	</div>   	<!-- end container -->
+</section>   <!-- end section -->
+
+<!--
+<section id="testimonial" class="testimonial overly section bg-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- testimonial wrapper -->
+				<div id="testimonials" class="wow fadeInUp" data-wow-duration="500ms" data-wow-delay="100ms">
+
+					<!-- testimonial single -->
+					<div class="item text-center">
+
+						<!-- client photo -->
+						<div class="client-thumb">
+							<img src="images/team/client-1.jpg" class="img-responsive" alt="Meghna">
+						</div>
+						<!-- /client photo -->
+
+						<!-- client info -->
+						<div class="client-info">
+							<div class="client-meta">
+								<h3>Jonathon Andrew</h3>
+								<span>Dec 26, 2018</span>
+							</div>
+							<div class="client-comment">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium minima ex, quia error, deserunt voluptatibus repellendus? Incidunt eligendi aliquam repellat molestias, vel sed optio rem odit quis ratione non consequuntur!</p>
+							</div>
+						</div>
+						<!-- /client info -->
+					</div>
+					<!-- /testimonial single -->
+
+					<!-- testimonial single -->
+					<div class="item text-center">
+
+						<!-- client photo -->
+						<div class="client-thumb">
+							<img src="images/team/client-2.jpg" class="img-responsive" alt="Meghna">
+						</div>
+						<!-- /client photo -->
+
+						<!-- client info -->
+						<div class="client-info">
+							<div class="client-meta">
+								<h3>Jonathon Andrew</h3>
+								<span>Dec 26, 2018</span>
+							</div>
+							<div class="client-comment">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel reiciendis qui in laborum obcaecati expedita blanditiis animi placeat, nemo exercitationem porro. Consequuntur qui commodi minima molestiae, dolores reprehenderit nemo inventore.</p>
+							</div>
+						</div>
+						<!-- /client info -->
+					</div>
+					<!-- /testimonial single -->
+
+					<!-- testimonial single -->
+					<div class="item text-center">
+
+						<!-- client photo -->
+						<div class="client-thumb">
+							<img src="images/team/client-1.jpg" class="img-responsive" alt="Meghna">
+						</div>
+						<!-- /client photo -->
+
+						<!-- client info -->
+						<div class="client-info">
+							<div class="client-meta">
+								<h3>Jonathon Andrew</h3>
+								<span>Dec 26, 2018</span>
+							</div>
+							<div class="client-comment">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia dolorem non delectus neque, voluptatem accusamus atque expedita doloribus minima iusto nemo, numquam eos quia maiores harum! Quaerat illum beatae necessitatibus!</p>
+							</div>
+						</div>
+						<!-- /client info -->
+					</div>
+					<!-- /testimonial single -->
+
+				</div>		<!-- end testimonial wrapper -->
+			</div> 		<!-- end col lg 12 -->
+		</div>	    <!-- End row -->
+	</div>       <!-- End container -->
+</section>    <!-- End Section -->
+
+<!-- Start Blog Section =========================================== -->
+
+<section id="blog" class="section">
+	<div class="container">
+		<div class="row">
+			<!-- section title -->
+			<div class="title text-center wow fadeInDown">
+				<h2> Latest <span class="color">Posts</span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+			<div class="clearfix">
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 clearfix wow fadeInUp" data-wow-duration="500ms">
+					<div class="post-block">
+						<div class="media-wrapper">
+							<img src="{{imag_path[0]}}" alt="amazing caves coverimage" class="img-responsive">
+						</div>
+						<div class="content">
+
+							<h3><a href="">{{latests[0].title}}</a></h3>
+							<p>{{latest[0]}}</p>
+							<a class="btn btn-transparent" href="{{url_for('blog')}}">Read more</a>
+
+						</div>
+					</div>
+				</article>
+				<!-- /single blog post -->
+
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="200ms">
+					<div class="post-block">
+						<div class="media-wrapper">
+							<div class="item">
+								<img src="images/blog/blog-post-1.jpg" alt="blog post" class="img-responsive">
+							</div>
+
+						</div>
+
+						<div class="content">
+							<h3><a href="">{{latests[1].title}}</a></h3>
+							<p>{{latest[1]}}</p>
+							<a class="btn btn-transparent" href="{{url_for('blog')}}">Read more</a>
+						</div>
+					</div>
+				</article>
+				<!-- end single blog post -->
+
+				<!-- single blog post -->
+				<article class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="400ms">
+					<div class="post-block">
+						<div class="media-wrapper">
+							<img src="{{imag_path[2]}}" alt="amazing caves coverimage" class="img-responsive">
+						</div>
+
+						<div class="content">
+							<h3><a href="">{{latests[2].title}}</a></h3>
+							<p>{{latest[2]}}</p>
+							<a class="btn btn-transparent" href="{{url_for('blog')}}">Read more</a>
+						</div>
+					</div>
+				</article>
+				<!-- end single blog post -->
+			</div>
+			<div class="all-post text-center">
+				<a class="btn btn-main" href="{{url_for('blog')}}">View All Post</a>
+			</div>
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</section> <!-- end section -->
+
+<!-- Srart Contact Us
+=========================================== -->
+<section id="contact-us" class="contact-us section-bg">
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+				<h2>Get In <span class="color">Touch</span></h2>
+				<div class="border"></div>
+			</div>
+			<!-- /section title -->
+
+			<!-- Contact Details -->
+			<div class="contact-info col-md-6 wow fadeInUp" data-wow-duration="500ms">
+				<h3>Contact Details</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, vero, provident, eum eligendi blanditiis ex explicabo vitae nostrum facilis asperiores dolorem illo officiis ratione vel fugiat dicta laboriosam labore adipisci.</p>
+				<div class="contact-details">
+					<div class="con-info clearfix">
+						<i class="tf-map-pin"></i>
+						<span>Khaja Road, Bayzid, Chittagong, Bangladesh</span>
+					</div>
+
+					<div class="con-info clearfix">
+						<i class="tf-ion-ios-telephone-outline"></i>
+						<span>Phone: +880-31-000-000</span>
+					</div>
+
+					<div class="con-info clearfix">
+						<i class="tf-ion-iphone"></i>
+						<span>Fax: +880-31-000-000</span>
+					</div>
+
+					<div class="con-info clearfix">
+						<i class="tf-ion-ios-email-outline"></i>
+						<span>Email: hello@meghna.com</span>
+					</div>
+				</div>
+			</div>
+			<!-- / End Contact Details -->
+
+			<!-- Contact Form -->
+			<div class="contact-form col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+				<form id="contact-form" method="post" action="sendmail.php" role="form">
+
+					<div class="form-group">
+						<input type="text" placeholder="Your Name" class="form-control" name="name" id="name">
+					</div>
+
+					<div class="form-group">
+						<input type="email" placeholder="Your Email" class="form-control" name="email" id="email">
+					</div>
+
+					<div class="form-group">
+						<input type="text" placeholder="Subject" class="form-control" name="subject" id="subject">
+					</div>
+
+					<div class="form-group">
+						<textarea rows="6" placeholder="Message" class="form-control" name="message" id="message"></textarea>
+					</div>
+
+					<div id="mail-success" class="success">
+						Thank you. The Mailman is on His Way :)
+					</div>
+
+					<div id="mail-fail" class="error">
+						Sorry, don't know what happened. Try later :(
+					</div>
+
+					<div id="cf-submit">
+						<input type="submit" id="contact-submit" class="btn btn-transparent" value="Submit">
+					</div>
+
+				</form>
+			</div>
+			<!-- ./End Contact Form -->
+
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+
+	<!-- Google Map -->
+		<div>
+			 <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/d/embed?mid=1SuwNJ-HqTWSF2Bmaur7HqmVqZBk&ie=UTF8&hl=en&msa=0&ll=-1.2897330000000218%2C36.80705299999999&spn=0.008581%2C0.010707&z=16&iwloc=0004817447742f770a649&output=embed" frameborder="0" allowfullscreen></iframe>
+		 </div>
+
+	<!-- /Google Map -->
+
+</section> <!-- end section -->
+
+
+<!-- end Contact Area
+		========================================== -->
+
+<footer id="footer" class="bg-one">
+	<div class="container">
+		<div class="row wow fadeInUp" data-wow-duration="500ms">
+			<div class="col-lg-12">
+
+				<!-- Footer Social Links -->
+				<div class="social-icon">
+					<ul class="list-inline">
+						<li><a href="https://facebook.com/themefisher"><i class="tf-ion-social-facebook"></i></a></li>
+						<li><a href="https://twitter.com/themefisher"><i class="tf-ion-social-twitter"></i></a></li>
+						<li><a href="https://www.youtube.com/channel/UCx9qVW8VF0LmTi4OF2F8YdA"><i class="tf-ion-social-youtube"></i></a></li>
+						<li><a href="https://dribbble.com/themefisher"><i class="tf-ion-social-dribbble-outline"></i></a></li>
+						<li><a href="https://pinterest.com/themefisher"><i class="tf-ion-social-pinterest-outline"></i></a></li>
+					</ul>
+				</div>
+				<!--/. End Footer Social Links -->
+
+				<!-- copyright -->
+				<div class="copyright text-center">
+					<a href="index.html">
+						<!-- <img src="images/logo-meghna.png" alt="Meghna" />  -->
+						<svg width="40px" height="40px" viewBox="0 0 45 44" version="1.1"
+							xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Group" transform="translate(2.000000, 2.000000)" stroke="#57CBCC"
+									stroke-width="3">
+									<ellipse id="Oval" cx="20.5" cy="20" rx="20.5" ry="20"></ellipse>
+									<path d="M6,7 L33.5,34.5" id="Line-2" stroke-linecap="square"></path>
+									<path d="M21,20 L34,7" id="Line-3" stroke-linecap="square"></path>
+								</g>
+							</g>
+						</svg>
+					</a>
+					<br />
+
+					<p>koileken</a>. Copyright
+						&copy; <script>
+							document.write(new Date().getFullYear())
+						</script>. All Rights Reserved.</p>
+				</div>
+				<!-- /copyright -->
+
+			</div> <!-- end col lg 12 -->
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</footer> <!-- end footer -->
+
+
+
+
+
+
+
+
+
+
+		<!--
+		Essential Scripts
+		=====================================-->
+
+		<!-- Main jQuery -->
+		<script type="text/javascript" src="static/jquery.min.js"></script>
+		<!-- Bootstrap 3.1 -->
+		<script type="text/javascript" src="static/bootstrap.min.js"></script>
+		<!-- Slick Carousel -->
+		<script type="text/javascript" src="static/slick.min.js"></script>
+		<!-- Portfolio Filtering -->
+		<script type="text/javascript" src="static/jquery.filterizr.min.js"></script>
+		<!-- Smooth Scroll -->
+		<script type="text/javascript" src="static/smooth-scroll.min.js"></script>
+		<!-- Magnific popup -->
+		<script type="text/javascript" src="static/jquery.magnific-popup.min.js"></script>
+		<!-- Google Map API -->
+		<script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+		<!-- Sticky Nav -->
+		<script type="text/javascript" src="static/jquery.sticky.js"></script>
+		<!-- Number Counter Script -->
+		<script type="text/javascript" src="static/jquery.countTo.js"></script>
+		<!-- wow.min Script -->
+		<script type="text/javascript" src="static/wow.min.js"></script>
+		<!-- Custom js -->
+		<script type="text/javascript" src="static/script.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Koileken</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/bootstra.css" />
+  <!-- fonts awesome style -->
+  <link href="static/awesome.min.css" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,,600,700|Poppins:400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/new.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/responsiv.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <div class="custom_menu-btn">
+          <button onclick="openNav()">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+        </div>
+        <div id="myNav" class="overlay">
+          <div class="menu_btn-style ">
+            <button onclick="closeNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+          </div>
+          <div class="overlay-content">
+            <a class="active" href="{{url_for('home')}}">
+              Home
+            </a>
+            <a class="{{url_for('blog')}}" href="service.html">
+              Blog
+            </a>
+            <a class="" href="why.html">
+              Facebook
+            </a>
+            <a class="#" href="testimonial.html">
+              Twitter
+            </a>
+            <a class="" href="blog.html">
+              Instagram
+            </a>
+            <a class="" href="contact.html">
+              Youtube
+            </a>
+          </div>
+        </div>
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Koileken
+          </span>
+        </a>
+      </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section position-relative" style="background-image: url('static/images/bc.jpg');>
+      <a class="navbar-brand" href="index.html">
+        <span>
+          Koileken
+        </span>
+      </a>
+      <div class="box">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Bishop<br/>
+                      Koileken
+                    </h1>
+                    <div class="btn-box">
+                      <a href="{{url_for('blog')}}" class="btn-1">
+                        Blog
+                      </a>
+                      <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
+                        Youtube
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Power of <br />
+                      The mind
+                    </h1>
+                    <div class="btn-box">
+                      <a href="{{url_for('blog')}}" class="btn-1">
+                        Blog
+                      </a>
+                      <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
+                        Youtube
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-lg-10 ml-auto">
+                  <div class="detail-box">
+                    <h1>
+                      Power of<br />
+                      The Mind
+                    </h1>
+                    <div class="btn-box">
+                      <a href="{{url_for('blog')}}" class="btn-1">
+                        Blog
+                      </a>
+                      <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
+                        Youtube
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel_btn-box">
+            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- we do section -->
+
+  <section class="wedo_section layout_padding section_pr">
+    <div class="container">
+      <div class="heading_container">
+        <h2>What I do</h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel wedo_owl_carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{abt_imag1}}" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                </h5>
+                <p>
+                  {{abts[0].service1}}
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{abt_imag2}}" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                </h5>
+                <p>
+                  {{abts[0].service2}}
+                </p>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{{abt_imag3}}" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                </h5>
+                <p>
+                 {{abts[0].service3}}
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end we do section -->
+
+  <!-- choose section -->
+
+
+
+  <!-- end choose section -->
+
+  <!-- blog section -->
+
+  <section class="blog_section layout_padding section_pr">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Latest Blog</h2>
+      </div>
+      <div id="customCarousel2" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="blog_content">
+                  <div class="blog_social">
+                    <a href="">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <span>
+                        Like
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-comment" aria-hidden="true"></i>
+                      <span>
+                        Comment
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-share-alt" aria-hidden="true"></i>
+                      <span>
+                        Share
+                      </span>
+                    </a>
+                  </div>
+                  <div class="img-box">
+                    <img src="{{latests[0].pics}}" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="blog_detail">
+                  <h2>
+                    {{latests[0].title}}
+                  </h2>
+                  <p>
+                  {{latest[0]}}
+                  </p>
+                  <a href="{{url_for('blog')}}">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="blog_content">
+                  <div class="blog_social">
+                    <a href="">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <span>
+                        Like
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-comment" aria-hidden="true"></i>
+                      <span>
+                        Comment
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-share-alt" aria-hidden="true"></i>
+                      <span>
+                        Share
+                      </span>
+                    </a>
+                  </div>
+                  <div class="img-box">
+                    <img src="{{latests[1].pics}}" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="blog_detail">
+                  <h2>
+                    {{latests[1].title}}
+                  </h2>
+                  <p>
+                    {{latest[1]}}
+                  </p>
+                  <a href="">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="blog_content">
+                  <div class="blog_social">
+                    <a href="">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <span>
+                        Like
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-comment" aria-hidden="true"></i>
+                      <span>
+                        Comment
+                      </span>
+                    </a>
+                    <a href="">
+                      <i class="fa fa-share-alt" aria-hidden="true"></i>
+                      <span>
+                        Share
+                      </span>
+                    </a>
+                  </div>
+                  <div class="img-box">
+                    <img src="{{latests[2].pics}}" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="blog_detail">
+                  <h2>
+                    {{latests[2].title}}
+                  </h2>
+                  <p>
+                   {{latest[2]}}
+                  </p>
+                  <a href="">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btn-box">
+          <a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#customCarousel2" role="button" data-slide="next">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid pb-video-container">
+    <div class="col-md-10 col-md-offset-1">
+        <h3 class="text-center">Video Gallery</h3>
+        <div class="row pb-row">
+            <div class="col-md-3 pb-video">
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[0].video}}" frameborder="0" allowfullscreen></iframe>
+                <label class="form-control label-warning text-center">{{latests[0].title}}</label>
+            </div>
+            <div class="col-md-3 pb-video">
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[1].video}}" frameborder="0" allowfullscreen></iframe>
+                <label class="form-control label-warning text-center">{{latests[1].title}}</label>
+            </div>
+            <div class="col-md-3 pb-video">
+                <iframe class="pb-video-frame " width="100%" height="230" src="{{latests[2].video}}" frameborder="0" allowfullscreen></iframe>
+                <label class="form-control label-warning text-center">{{latests[2].title}}</label>
+            </div>
+            <div class="col-md-3 pb-video">
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[3].video}}" frameborder="0" allowfullscreen></iframe>
+                <label class="form-control label-warning text-center">{{latests[3].title}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .pb-video-container {
+        padding-top: 20px;
+        background: #bdc3c7;
+        font-family: Lato;
+    }
+
+    .pb-video {
+        border: 1px solid #e6e6e6;
+        padding: 5px;
+    }
+
+        .pb-video:hover {
+            background: #2c3e50;
+        }
+
+    .pb-video-frame {
+        transition: width 2s, height 2s;
+    }
+
+        .pb-video-frame:hover {
+            height: 300px;
+        }
+
+    .pb-row {
+        margin-bottom: 10px;
+    }
+</style>
+
+  <!-- end blog section -->
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding section_pl ">
+    <div class="container py_mobile_45">
+      <div class="heading_container">
+        <h2>Get <span>In Touch</span></h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="">
+              <div>
+                <input type="text" placeholder="Full Name " />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone number" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="d-flex ">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding section_pr">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Testimonial
+        </h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel client_owl_carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client-img1.jpg" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Steven White
+                </h5>
+                <h6>
+                  Look even
+                </h6>
+                <p>
+                  words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsumwords which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client-img2.jpg" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Hanna Jonas
+                </h5>
+                <h6>
+                  Look even
+                </h6>
+                <p>
+                  words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsumwords which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding section_pl">
+    <div class="container">
+      <div class="info_logo">
+        <a href="">
+          Koileken
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  Email : demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="index.html">
+                Home
+              </a>
+              <a class="" href="service.html">
+                blog
+              </a>
+              <a class="" href="why.html">
+                Facebook
+              </a>
+              <a class="" href="testimonial.html">
+                Twitter
+              </a>
+              <a class="" href="blog.html">
+                Instagram
+              </a>
+              <a class="" href="contact.html">
+                youtube
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="">
+            <input type="text" placeholder="Your Email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved. Design by:
+        <h3>tonykosh</h3>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="static/jquery-3.4.1.min.js"></script>
+  <script src="static/bootstra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="static/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+{% extends 'ed.html' %}
+{% block head %}
+{% endblock %}
+{% block body %}
+<section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{{url_for('static',filename='mk.jpg')}}" alt="">
+          </div>
+        </div>
+        {% for cont in cont %}
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4"></h2>
+              <small class="text-muted">{{cont.date.strftime('%y-%m-%d')}}</small>
+              <h2>{{cont.title}}</h2>
+              <p>{{cont.posts}}</p>
+            {% if cont.author==current_user %}
+               <div>
+                   <a class="btn btn-secondary btn-sm m-1" href="{{url_for('update',id=cont.id)}}">update</a>
+                   <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+               </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+           <!-- Modal -->
+
+    </div>
+
+  </section>
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModal">you want to delete the post?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          {% for cont in cont %}
+          <form action="{{url_for('delete',id=cont.id)}}" method='POST'>
+            <input class="btn btn-danger" type="submit" value="delete">
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

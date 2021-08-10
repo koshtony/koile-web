@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+{% block head %}
+  <head>
+  	<title>Login 04</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="static/s1.css">
+	<body>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(static/images/1.jpg);">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">LOGIN WITH GOOGLE ACCOUNT
+
+
+									</p>
+								</div>
+			      	</div>
+							<form action="" method="POST" class="signin-form">
+								{{form.hidden_tag()}}
+			      		<div class="form-group mb-3">
+							{{form.email.label(class="fom-control-label")}}
+							{% if form.email.errors %}
+								{{form.email(class="form-control form-control-lg is-invalid")}}
+								<div class="invalid-feedback">
+								   {% for error in form.email.errors %}
+									  <span>{{error}}</span>
+								   {% endfor %}
+								</div>
+							{% else %}
+								{{form.email(class="form-control form-control-lg")}}
+							{% endif %}
+			      		</div>
+		            <div class="form-group mb-3">
+		            	{{form.password.label(class="fom-control-label")}}
+            {% if form.password.errors %}
+               {{form.password(class="form-control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                   <span>{{error}}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+               {{form.password(class="form-control form-control-lg")}}
+            {% endif %}
+		            </div>
+		            <div class="form-group">
+						{{form.submit(class="btn btn-outline-info")}}
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+							{{form.remember(class="form-check-input")}}
+            				{{form.remember.label(class="form-check-label")}}
+						</div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="static/j.js"></script>
+  <script src="static/popper.js"></script>
+  <script src="static/bms.js"></script>
+  <script src="static/m.js"></script>
+
+	</body>
+{% endblock %}
+</html>
