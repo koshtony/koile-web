@@ -20,8 +20,16 @@ nam='Antony1a'
 key=hashlib.md5(nam.encode('utf-8')).hexdigest()
 app.config['SECRET_KEY']=key
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///jimmy.db'
+app.config['MAIL_SERVER']='smtp.googlemail.com'
+app.config['MAIL_PORT']=587
+app.config['MAIL_USERNAME']='tonykungu2@gmail.com'
+app.config['MAIL_DEFAULT_SENDER']='tonykungu2@gmail.com'
+app.config['MAIL_PASSWORD']='Antony1a'
+app.config['MAIL_USE_TLS']=True
+app.config['MAIL_USE_SSL']=False
 data=SQLAlchemy(app)
 lm=l(app)
+mail=Mail(app)
 @lm.user_loader
 def load_user(m_id):
     return member.query.get(int(m_id))
@@ -91,7 +99,7 @@ def pi_save(pi):
     im.thumbnail(out_size)
     im.save(pi_path)
     return pi_fname
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def home():
     latests=content.query.order_by(content.date.desc())
     commen=comments.query.all()
@@ -106,7 +114,19 @@ def home():
         image_p=os.path.join("static/images",i.pics)
         imag_path.append(image_p)
         latest.append(" ".join(i.posts.split()[0:30]))
+    if request.method=="POST":
+        name=request.form["name"]
+        phone=request.form["phone"]
+        email=request.form["email"]
+        message=request.form["message"]
+        send_mail(name,email,phone,message)
+        return redirect(url_for('home'))
     return render_template("new.html",latest=latest,latests=latests,abts=abts,abt_imag1=abt_imag1,abt_imag2=abt_imag2,abt_imag3=abt_imag3,imag_path=imag_path,commen=commen)
+def send_mail(name,email,phone,message):
+    header="name: "+name+" email: "+email+" phone no: "+phone
+    msg=Message(header,sender=app.config['MAIL_USERNAME'],recipients=[app.config['MAIL_USERNAME']])
+    msg.body=f'''{message}'''
+    mail.send(msg)
 @app.route('/login',methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
