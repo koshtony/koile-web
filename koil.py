@@ -12,6 +12,7 @@ from flask_login import LoginManager as l
 from flask_login import current_user,UserMixin,login_user,logout_user,UserMixin,login_required
 from flask_bcrypt import Bcrypt as B
 import secrets
+import urllib.request
 from itsdangerous import TimedJSONWebSignatureSerializer as st
 import os
 from PIL import Image
@@ -19,7 +20,7 @@ app=Flask(__name__,template_folder='templates')
 nam='Antony1a'
 key=hashlib.md5(nam.encode('utf-8')).hexdigest()
 app.config['SECRET_KEY']=key
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///jimmy.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///ken.db'
 app.config['MAIL_SERVER']='smtp.googlemail.com'
 app.config['MAIL_PORT']=587
 app.config['MAIL_USERNAME']='tonykungu2@gmail.com'
@@ -43,20 +44,20 @@ class member(data.Model,UserMixin):
         return str(self.id)
 class about(data.Model):
     id=data.Column(data.Integer,primary_key=True)
-    service1=data.Column(data.Text,nullable=False)
-    s1_pic=data.Column(data.String(50),nullable=False,default='default.jpg')
-    service2=data.Column(data.Text,nullable=False)
-    s2_pic=data.Column(data.String(50),nullable=False,default='default.jpg')
-    service3=data.Column(data.Text,nullable=False)
-    s3_pic=data.Column(data.String(50),nullable=False,default='default.jpg')
+    service1=data.Column(data.Text,nullable=True)
+    s1_pic=data.Column(data.String(50),nullable=True)
+    service2=data.Column(data.Text,nullable=True)
+    s2_pic=data.Column(data.String(50),nullable=True)
+    service3=data.Column(data.Text,nullable=True)
+    s3_pic=data.Column(data.String(50),nullable=True)
     def __repr__(self):
         return str(self.id)
 class content(data.Model):
     id=data.Column(data.Integer,primary_key=True)
-    title=data.Column(data.Integer,nullable=False)
+    title=data.Column(data.Integer,nullable=False,default="no posts yet")
     date=data.Column(data.DateTime,nullable=False,default=datetime.utcnow)
-    video=data.Column(data.String(50),nullable=True,default="default.mp4")
-    posts=data.Column(data.Text,nullable=False)
+    video=data.Column(data.String(50),nullable=False,default="default.mp4")
+    posts=data.Column(data.Text,nullable=False,default="no posts yet")
     pics=data.Column(data.String(50),nullable=True)
     m_id=data.Column(data.Integer,data.ForeignKey('member.id'),nullable=False)
     def __repr__(self):
@@ -65,6 +66,14 @@ class comments(data.Model):
     id=data.Column(data.Integer,primary_key=True)
     name=data.Column(data.String(50),nullable=True)
     comment=data.Column(data.Text,nullable=True)
+    def __repr__(self):
+        return str(self.id)
+class subscribers(data.Model):
+    id=data.Column(data.Integer,primary_key=True)
+    email=data.Column(data.String(40),nullable=True)
+    def __repr__(self):
+        return str(self.id)
+
 class logform(FlaskForm):
     email=StringField('email',validators=[DataRequired(),Email(message='invalid email')])
     password=PasswordField('password',validators=[DataRequired(),Length(min=8,max=30)])
@@ -73,8 +82,8 @@ class logform(FlaskForm):
 class poster(FlaskForm):
     title=StringField('Title',validators=[DataRequired()])
     posts= TextAreaField('posts',validators=[DataRequired()])
-    pic=FileField('post picture',validators=[FileAllowed(['jpg','png'])])
-    vid=StringField('post video (copy youtube video link)')
+    pic=FileField('post picture',validators=[FileAllowed(['jpg','png','jpeg'])])
+    vid=FileField('post video',validators=[FileAllowed(['mp4','mkv','mov','webm'])])
     submit=SubmitField('post')
 class abouts(FlaskForm):
     service1= TextAreaField('first service you offer',validators=[DataRequired()])
@@ -109,28 +118,48 @@ def home():
     abt_imag3="static/images/"+abts[0].s2_pic
     latest=[]
     imag_path=[]
-    print(latests[0].video)
+    video_path=[]
     for i in latests:
         image_p=os.path.join("static/images",i.pics)
+        v=os.path.join("static/videos",i.video)
         imag_path.append(image_p)
+        video_path.append(v)
         latest.append(" ".join(i.posts.split()[0:30]))
     if request.method=="POST":
+        nams=request.form["ems"]
         name=request.form["name"]
         phone=request.form["phone"]
         email=request.form["email"]
         message=request.form["message"]
         send_mail(name,email,phone,message)
+        em=subscribers(email=nams)
+        data.session.add(em)
+        data.session.commit()
+        send_template(nams)
         return redirect(url_for('home'))
-    return render_template("new.html",latest=latest,latests=latests,abts=abts,abt_imag1=abt_imag1,abt_imag2=abt_imag2,abt_imag3=abt_imag3,imag_path=imag_path,commen=commen)
+    return render_template("new.html",latest=latest,latests=latests,abts=abts,abt_imag1=abt_imag1,abt_imag2=abt_imag2,abt_imag3=abt_imag3,imag_path=imag_path,commen=commen,video_path=video_path)
 def send_mail(name,email,phone,message):
     header="name: "+name+" email: "+email+" phone no: "+phone
     msg=Message(header,sender=app.config['MAIL_USERNAME'],recipients=[app.config['MAIL_USERNAME']])
     msg.body=f'''{message}'''
     mail.send(msg)
+def send_template(email):
+    url="{{url_for('blog')}}"
+    res=urllib.request.urlopen(url)
+    temp=res.read()
+    fl=open('static/webs/temp.html','w')
+    fl.write(temp)
+    fl.close()
+    msg=msg=Message(header,sender=app.config['MAIL_USERNAME'],recipients=[emails])
+    msg.html=render_template('static/webs/temp.html')
+    mail.send(msg)
+
+
+    msg.html=render_template()
 @app.route('/login',methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for(''))
+        return redirect(url_for('blog'))
     form=logform()
     if form.validate_on_submit():
         credentials=member.query.filter_by(email=form.email.data).first()
@@ -168,7 +197,9 @@ def post():
     if form.validate_on_submit():
         pic_f=pi_save(form.pic.data)
         pi_dir="static/images/"+pic_f
-        post=content(title=form.title.data,video=form.vid.data,posts=form.posts.data,author=current_user,pics=pi_dir)
+        videos=form.vid.data
+        videos.save(os.path.join("static/videos",videos.filename))
+        post=content(title=form.title.data,video=videos.filename,posts=form.posts.data,author=current_user,pics=pi_dir)
         data.session.add(post)
         data.session.commit()
         return redirect(url_for('blog'))
@@ -176,7 +207,7 @@ def post():
     return render_template('post.html',form=form)
 @app.route('/blog',methods=['GET','POST'])
 def blog():
-    page=request.args.get('page',type=int)
+    page=request.args.get('page',1,type=int)
     pos=content.query.order_by(content.date.desc())
     commen=comments.query.order_by(comments.id.desc())
     imag=[]
@@ -184,7 +215,7 @@ def blog():
     for p in pos:
         imag.append(p.pics)
         post.append(p.title)
-    posts=content.query.order_by(content.date.desc()).paginate(page=page,per_page=5)
+    posts=content.query.order_by(content.date.desc()).paginate(page=page,per_page=2)
     print(imag)
     if request.method=="POST":
         name=request.form["name"]
@@ -236,5 +267,14 @@ def del_serv(id):
     data.session.commit()
     flash(f'service deleted successfully','success')
     return redirect(url_for('blog'))
+@app.errorhandler(404)
+def error404(error):
+    return render_template('404.html'),404
+@app.errorhandler(403)
+def error403(error):
+    return render_template('403.html'),403
+@app.errorhandler(500)
+def error500(error):
+    return render_template('500.html'),500
 if __name__=="__main__":
     app.run(debug=True)

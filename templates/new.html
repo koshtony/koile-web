@@ -54,19 +54,16 @@
             <a class="active" href="{{url_for('home')}}">
               Home
             </a>
-            <a class="{{url_for('blog')}}" href="service.html">
-              Blog
+            <a class="active" href="{{url_for('login')}}">
+              Admin
             </a>
-            <a class="" href="why.html">
+            <a class="active" href="https://www.facebook.com/JIMMYMPUSIA">
               Facebook
             </a>
-            <a class="#" href="testimonial.html">
+            <a class="active" href="https://twitter.com/mpusia?s=03">
               Twitter
             </a>
-            <a class="" href="blog.html">
-              Instagram
-            </a>
-            <a class="" href="contact.html">
+            <a class="active" href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w">
               Youtube
             </a>
           </div>
@@ -104,6 +101,9 @@
                       <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
                         Youtube
                       </a>
+                      <a href="{{url_for('donate')}}" class="btn-2">
+                        Donate
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -124,6 +124,9 @@
                       <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
                         Youtube
                       </a>
+                      <a href="{{url_for('donate')}}" class="btn-2">
+                        Donate
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -143,6 +146,9 @@
                       </a>
                       <a href="https://www.youtube.com/channel/UCuzTpuho6EkK6PzXTAIoS1w" class="btn-2">
                         Youtube
+                      </a>
+                      <a href="{{url_for('donate')}}" class="btn-2">
+                        Donate
                       </a>
                     </div>
                   </div>
@@ -323,7 +329,7 @@
                   <p>
                     {{latest[1]}}
                   </p>
-                  <a href="">
+                  <a href="{{url_for('blog')}}">
                     Read More
                   </a>
                 </div>
@@ -367,7 +373,7 @@
                   <p>
                    {{latest[2]}}
                   </p>
-                  <a href="">
+                  <a href="{{url_for('blog')}}">
                     Read More
                   </a>
                 </div>
@@ -393,20 +399,19 @@
         <h3 class="text-center">Video Gallery</h3>
         <div class="row pb-row">
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[0].video}}" frameborder="0" allowfullscreen></iframe>
-                <label class="form-control label-warning text-center">{{latests[0].title}}</label>
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{video_path[0]}}" frameborder="0" volume="0" mute="1" allowfullscreen></iframe>
+
             </div>
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[1].video}}" frameborder="0" allowfullscreen></iframe>
-                <label class="form-control label-warning text-center">{{latests[1].title}}</label>
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{video_path[1]}}" frameborder="0" volume="0" mute="1" allowfullscreen></iframe>
+
             </div>
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="{{latests[2].video}}" frameborder="0" allowfullscreen></iframe>
-                <label class="form-control label-warning text-center">{{latests[2].title}}</label>
+                <iframe class="pb-video-frame " width="100%" height="230" src="{{video_path[2]}}" frameborder="0" volume="0" mute="1" allowfullscreen></iframe>
+
             </div>
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="{{latests[3].video}}" frameborder="0" allowfullscreen></iframe>
-                <label class="form-control label-warning text-center">{{latests[3].title}}</label>
+                <iframe class="pb-video-frame" width="100%" height="230" src="{{video_path[2]}}" frameborder="0" volume="0" mute="1" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -505,13 +510,13 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  Steven White
+                  Steven
                 </h5>
                 <h6>
-                  Look even
+                  Australia
                 </h6>
                 <p>
-                  words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsumwords which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                Jesus never said it would be easy. I think if you were called to be a pastor or a preacher you know that you have to die to yourself daily.,that’s what Christian do. It is not a 9 -5 job no matter what and if you have a family that is what understood doesn’t need any explanation. Jesus took on our sins so we could have life because what we see is only temporary anyway.
                 </p>
               </div>
             </div>
@@ -523,13 +528,13 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  Hanna Jonas
+               Ken
                 </h5>
                 <h6>
-                  Look even
+                  Kenya
                 </h6>
                 <p>
-                  words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsumwords which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+                  Thank you so much. I am a pastor and I have gone through these things and reading your article encouraged me please keep doing more of these. Blessings from Nairobi Kenya.
                 </p>
               </div>
             </div>
@@ -566,13 +571,13 @@
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +254 722720597
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  Email : demo@gmail.com
+                  Email : drjimmympusia@gmail.com
                 </span>
               </a>
             </div>
@@ -623,9 +628,9 @@
           <h4>
             Subscribe
           </h4>
-          <form action="">
-            <input type="text" placeholder="Your Email" />
-            <button type="submit">
+          <form action="{{url_for('home')}}" method="post">
+            <input type="text" name="ems" value="ls" placeholder="Your Email" />
+            <button type="submit" name="submit">
               Subscribe
             </button>
           </form>

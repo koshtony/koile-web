@@ -41,6 +41,7 @@ http://www.tooplate.com/view/2021-galaxy
                     <li><a href="{{url_for('abbt')}}">add services</a></li>
                     {% else %}
                     <li><a href="{{url_for('home')}}" class="selected">Home</a></li>
+                    <li><a href="{{url_for('login')}}" class="selected">ADMIN</a></li>
 										{% endif %}
                 </ul>
             </div> <!-- end of tooplate_menu -->
@@ -49,8 +50,6 @@ http://www.tooplate.com/view/2021-galaxy
         </div>
 
         <div id="content">
-          <div class="scroll">
-            <div class="scrollContainer">
             {% for post in posts.items %}
               <div class="panel" id="home">
                   <h2>{{post.title}}</h2>
@@ -58,10 +57,17 @@ http://www.tooplate.com/view/2021-galaxy
                   <p style="color:white">{{post.posts}}</p>
 
               </div>
-              <a href="{{url_for('donate')}}" class="btn-1" style="background-color:blue">
-                Donate
-              </a>
 								{% endfor %}
+                {% for page_num in posts.iter_pages(left_edge=1,right_edge=1,left_current=1,right_current=1) %}
+                  {% if page_num %}
+                    {% if posts.page==page_num %}
+                          <a class="btn btn-outline-info mb-4" href="{{url_for('blog',page=page_num)}}">{{page_num}}</a>
+                    {% else %}
+                          <a class="btn btn-outline-info mb-4" href="{{url_for('blog',page=page_num)}}">{{page_num}}</a>
+                    {% endif %}
+
+                  {% endif %}
+           {% endfor %}
 			  <!-- end of aboutus -->
 			  <!-- end of service -->
           <h1> leave your comments </h1>
@@ -81,14 +87,8 @@ http://www.tooplate.com/view/2021-galaxy
             <br>
           </div>
         </div>
-       <div class="panel" id="contacts">
-        {% for comm in commen %}
-         <h3>name: {{comm.name}}</h3>
-          <p>{{comm.comment}}</p>
-        {% endfor %}
-      </div>
+
               <div class="panel" id="gallery">
-                <h1>Gallery</h1>
                 <div id="gallery_container">
                   <div class="gallery_box"> <a href="#"><img src="{{imag[0]}}" /></a> </div>
                   <div class="gallery_box"> <a href="#"><img src="{{imag[1]}}" /></a> </div>
@@ -111,7 +111,7 @@ http://www.tooplate.com/view/2021-galaxy
   		<div id="footer">
 
         	<div id="social_box">
-            	<a href="#"><img src="static/images/facebook.png" alt="facebook" /></a>
+            	<a href="https://www.facebook.com/JIMMYMPUSIA"><img src="static/images/facebook.png" alt="facebook" /></a>
             	<a href="#"><img src="static/images/flickr.png" alt="flickr" /></a>
             	<a href="#"><img src="static/images/myspace.png" alt="myspace" /></a>
             	<a href="#"><img src="static/images/twitter.png" alt="twitter" /></a>
@@ -126,7 +126,7 @@ http://www.tooplate.com/view/2021-galaxy
             </div>
 
             <div class="cleaner"></div>
- 		</div>
+
     </div>
 </div>
 
